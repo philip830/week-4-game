@@ -1,0 +1,103 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Crystal Ball of Fun!</title>
+	<!-- Bootstrap CDN -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Reset and Style sheets -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/
+	style.css"> -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript"></script>
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="jumbotron">
+				<h1>Crystal Ball of Fun!</h1>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel heading">
+				<h3 class="panel-title">Gaze into these rules to learn how to play the game:</h3>
+				<h1>* Each of the four crystals below represents a random numeric value</h1>
+				<h1>* The number in the green box is also a random numeric value</h1>
+				<h1>* Choose a combination of the crystal numbers to add up to the green-box number
+				<h1>* If you hit the number, you win! If you surpass the number, well, you kind of lose</h1>
+			</div>
+			</div>
+
+		<!--Randomizer #1-->
+		<div class="panel panel-default">	
+			<div class="panel-body">
+				Your number to match: <span id="randomNumber"></span>
+			</div>
+		</div>
+
+		<!--Wins-->
+		<div class="panel panel-default">
+			<div class="panel-body">
+				Your wins so far = <span id="winCounter">0</span>
+			</div>
+		</div>
+		
+		<!--Losses-->
+		<div class="panel panel-default">
+			<div class="panel-body">
+				Your losses so far = <span id="lossCounter">0</span>
+			</div>
+		</div>
+
+		<!--Gem #1-->
+		<div class="panel panel-default">
+			<div class="panel-body">
+				 <button id="gem1" class="btn btn-primary btn-lg"><img src="http://www.clker.com/cliparts/Z/S/z/U/T/g/gem-hi.png"
+				class="GemsAll" alt="Ruby" width="90" height="90" border="10"></button>
+			</div>
+		</div>
+
+		<!--Gem #2-->
+		<div class="panel panel-default">
+			<div class="panel-body">
+		   		<button id="gem2" class="btn btn-primary btn-lg"><img src="https://imgs-tuts-dragoart-386112.c.cdn77.org/how-to-draw-a-sapphire_1_000000022473_5.png"
+				class="GemsAll" alt="Sapphire" width="90" height="90" border="10"></button>
+				</div>
+		</div>
+
+		<!--Gem #3-->
+		<div class="panel panel-default">
+			<div class="panel-body">
+			<button id="gem3" class="btn btn-primary btn-lg"><img src="http://www.jewelryimpressions.com/files/19875/chatham/images/ysoctogon3.jpg"
+				class="GemsAll" alt="Diamond" width="90" height="90" border="10"></button>
+				<span id="Gem3"></span>
+			</div>
+		</div>
+
+		<!--Gem #4-->
+		<div class="panel panel-default">
+			<div class="panel-body">
+			<button id="gem4" class="btn btn-primary btn-lg"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQQKLiOKazNSJFJNKJH1tiGHKLnl4WxNfIuZ7S4KYLaR1DgE9D9"
+				class="GemsAll" alt="Emerald" width="90" height="90" border="10"></button>
+				<span id="Gem4"></span>
+			</div>
+		</div>
+
+		<!--Live number count-->
+		<div class="panel panel-default">
+			<div class="panel-body">
+				Your current number total = <span id="numGuesses"></span>
+			</div>
+		</div>
+
+		<div id="gemUnoNum"></div>
+		<script src="assets/javascript/game.js"></script>
+
+		</div>
+
+	</div>
+</body>
+</html>
+
