@@ -5,13 +5,15 @@
 
 
 
-function startGame() {
+//function startGame() {
 
     //Global Variables
     var randomGem1 = 0;
     var randomGem2 = 0;
     var randomGem3 = 0;
     var randomGem4 = 0;
+    var holdTotal = 0;
+    //var firstTimeIn = true;
 
     //var firstTimeIn = true;
 
@@ -19,30 +21,48 @@ function startGame() {
     var winCount = 0;
     var lossCount = 0;  
 
-    // Generate a random number
+    
+ function randomizeCells() {
+
+      // Generate a random number
     var random = Math.floor(Math.random() * 100) + 1;  
 
     // Then dump the random number into our randomNumber div. 
     $('#randomNumber').html(random);
 
-    }    
 
+    randomGem1 = Math.ceil(Math.random() * 12); 
+    randomGem2 = Math.ceil(Math.random() * 12);
+    randomGem3 = Math.ceil(Math.random() * 12);
+    randomGem4 = Math.ceil(Math.random() * 12);
+   // $("#crystal-cells__number1").html(cell1);
+  //  $("#crystal-cells__number2").html(cell2);
+  //  $("#crystal-cells__number3").html(cell3);
+   // $("#crystal-cells__number4").html(cell4);
+    console.log(randomGem1, randomGem2, randomGem3, randomGem4);
+}
+
+          
 function playTheGame() {
+    
 
      $("#gem1").on("click", function(){
 
-    // Generate a random number for Gem1
-    //var randomGem1 = Math.floor(Math.random() * 10) + 1;  
-    randomGem1 = 7;
-    $('#currTotal').html(randomGem1);
+        holdTotal = holdTotal + randomGem1;
+
     
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem2save').html(randomGem2);
+    $('#currTotal').html(randomGem1);
+    console.log(randomGem1)
+   
+
     })
     
 
     $("#gem2").on("click", function(){
 
-    // Generate a random number
-    var randomGem2 = Math.floor(Math.random() * 10) + 1;  
+     holdTotal = holdTotal + randomGem2;
 
     // Then dump the random number into our randomNumber div. 
     //$('#gem2save').html(randomGem2);
@@ -54,8 +74,7 @@ function playTheGame() {
 
     $("#gem3").on("click", function(){
 
-    // Generate a random number for Gem1
-    var randomGem3 = Math.floor(Math.random() * 10) + 1;  
+     holdTotal = holdTotal + randomGem3;
 
     // Then dump the random number into our randomNumber div. 
     //$('#gem1save').html(randomGem1);
@@ -67,8 +86,7 @@ function playTheGame() {
 
     $("#gem4").on("click", function(){
 
-    // Generate a random number
-    var randomGem4 = Math.floor(Math.random() * 10) + 1;  
+         holdTotal = holdTotal + randomGem4;
 
     // Then dump the random number into our randomNumber div. 
     //$('#gem2save').html(randomGem2);
@@ -76,47 +94,31 @@ function playTheGame() {
     console.log(randomGem4)
     
     })
+}
 
+function checkWin(winScore, score) {
+    
+    if (holdTotal == winScore) {
+        return "win";
+
+    } else if (holdTotal > winScore) {
+        return "loss";
+
+    } else if (holdTotal < winScore) {
+        return "continue";
     }
+}
 
-    //$("#gem1").on("click", function(){
-      // var randomGem1 = Math.floor(Math.random() * 10) + 1; 
-
-       // var holdTotal = randomGem1 + 7;
-        //$('#currTotal').html(randomGem1);
-        //console.log(randomGem1);
-        //console.log(holdTotal);
-
-    //$("#gem1").on("click", function(){
-    //this.holdTotal = this.holdTotal + (randomGem1);
-    //console.log(this.holdTotal)
-  //  randomGem1 = randomGem1 + 7;
-    //$('#currTotal').html(randomGem1);
-    //console.log(randomGem1)
-  
     
-    // Then dump the random number into our randomNumber div. 
-    //$('#gem1save').html(randomGem1);
-    //$('#CurrTotal').html(#CurrTotal + randomGem1);
-   // $('holdTotal').html(holdTotal + randomGem1);
-   // holdTotal = randomGem1
-   // $('holdTotal').html(randomGem1);
-   // $('#currTotal').html(randomGem1);
-    //console.log(randomGem1);
-    //console.log(holdTotal)
-    //console.log(holdTotal);
-
-    //})
-    
-
     
 
 // MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
 // ==================================================================================================
 
 // Starts the Game by running the startGame() function
-startGame();
-playTheGame();
+  randomizeCells();
+   playTheGame();
+   functionCheckWin();
 //playTheGame();
 
 	

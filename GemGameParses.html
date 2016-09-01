@@ -93,4 +93,181 @@ if(firstTimeIn) {
     $('#currTotal').html(randomGem4);
     console.log(randomGem4)
     
+    function playTheGame() {
+
+     $("#gem1").on("click", function(){
+
+    // Generate a random number for Gem1
+    //var randomGem1 = Math.floor(Math.random() * 10) + 1;  
+    randomGem1 = 7; 
+    $('#currTotal').html(randomGem1);
+    
     })
+    
+
+    $("#gem2").on("click", function(){
+
+    // Generate a random number
+    var randomGem2 = Math.floor(Math.random() * 10) + 1;  
+
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem2save').html(randomGem2);
+    var score = score + randomGem2;
+    $('#currTotal').html(score);
+    console.log(randomGem2)
+    
+    })
+
+
+    $("#gem3").on("click", function(){
+
+    // Generate a random number for Gem1
+    var randomGem3 = Math.floor(Math.random() * 10) + 1;  
+
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem1save').html(randomGem1);
+    $('#currTotal').html(randomGem3);
+    console.log(randomGem3);
+   
+    })
+
+
+    $("#gem4").on("click", function(){
+
+    // Generate a random number
+    var randomGem4 = Math.floor(Math.random() * 10) + 1;  
+
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem2save').html(randomGem2);
+    $('#currTotal').html(randomGem4);
+    console.log(randomGem4)
+    
+    })
+
+    }
+
+    //$("#gem1").on("click", function(){
+      // var randomGem1 = Math.floor(Math.random() * 10) + 1; 
+
+       // var holdTotal = randomGem1 + 7;
+        //$('#currTotal').html(randomGem1);
+        //console.log(randomGem1);
+        //console.log(holdTotal);
+
+    //$("#gem1").on("click", function(){
+    //this.holdTotal = this.holdTotal + (randomGem1);
+    //console.log(this.holdTotal)
+  //  randomGem1 = randomGem1 + 7;
+    //$('#currTotal').html(randomGem1);
+    //console.log(randomGem1)
+  
+    
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem1save').html(randomGem1);
+    //$('#CurrTotal').html(#CurrTotal + randomGem1);
+   // $('holdTotal').html(holdTotal + randomGem1);
+   // holdTotal = randomGem1
+   // $('holdTotal').html(randomGem1);
+   // $('#currTotal').html(randomGem1);
+    //console.log(randomGem1);
+    //console.log(holdTotal)
+    //console.log(holdTotal);
+
+    //})
+    
+
+    
+
+// MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
+// ==================================================================================================
+
+// Starts the Game by running the startGame() function
+randomizeCells();
+randomizeWinScore();
+//playTheGame();
+
+    //******************************************
+    })
+
+    function randomizeCells() {
+	cell1 = Math.ceil(Math.random() * 12); 
+	cell2 = Math.ceil(Math.random() * 12);
+	cell3 = Math.ceil(Math.random() * 12);
+	cell4 = Math.ceil(Math.random() * 12);
+	$("#crystal-cells__number1").html(cell1);
+	$("#crystal-cells__number2").html(cell2);
+	$("#crystal-cells__number3").html(cell3);
+	$("#crystal-cells__number4").html(cell4);
+	console.log(cell1, cell2, cell3, cell4);
+}
+
+function randomizeWinScore() {
+	winScore = Math.ceil(Math.random() * scoreGoalMax - scoreGoalMin) + scoreGoalMin;
+	$("#win-score").html("WINNING NUMBER: " + "<br/>" + winScore);
+}
+
+function checkWin(winScore, score) {
+	
+	if (score == winScore) {
+		return "win";
+
+	} else if (score > winScore) {
+		return "loss";
+
+	} else if (score < winScore) {
+		return "continue";
+	}
+}
+
+function clearNumber() {
+	console.log($(".crystal-cells__number"))
+	$(".crystal-cells__number").removeClass("crystal-cells__number--revealed");
+}
+
+function initializeGame() {
+	randomizeWinScore();
+	randomizeCells();
+	clearNumber();
+}
+
+//INITIAL FUNCTION FOR UPDATING SCORE
+function updateScore(score, amount){
+	return score + amount;
+}
+
+//THE CLICK EVENTS THAT STORE THE VARIABLE 'AMOUNT', WHICH IS EQUAL TO THE VALUE OF THE CRYSTAL.
+$(".crystals-cells").on("click", function(event) {
+
+ 	var id = event.currentTarget.id;
+ 	
+ 	var amount = 0;
+
+ 	switch(id) {
+
+ 		case "crystals-cell-1": 
+ 			amount = cell1;
+ 			$("#crystal-cells__number1").addClass("crystal-cells__number--revealed");
+ 			break;
+
+ 		case "crystals-cell-2": 
+ 			amount = cell2;
+ 			$("#crystal-cells__number2").addClass("crystal-cells__number--revealed");
+ 			break;
+
+ 		case "crystals-cell-3":
+ 			amount = cell3;
+ 			$("#crystal-cells__number3").addClass("crystal-cells__number--revealed");
+ 			break;
+
+ 		case "crystals-cell-4": 
+ 			$("#crystal-cells__number4").addClass("crystal-cells__number--revealed");
+ 			amount = cell4;
+ 			break;
+
+ 		default: 
+ 			amount = 0;
+ 			break;
+ 	}
+
+ 	// RUN UPDATESCORE WITH VALUE OF CELL CLICKED (AMOUNT), AND SET THE NEW VALUE OF 'SCORE' TO BE THE OLD VALUE OF 'SCORE' PLUS 'AMOUNT', WHICH IS TIED TO THE VALUE OF AN INDIVIDUAL CRYSTAL
+ 	score = updateScore(score, amount);
