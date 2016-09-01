@@ -26,3 +26,71 @@ $(document).ready(function(){
 http://www.clker.com/cliparts/D/r/4/x/K/p/ruby-simple.svg
 
 <h1><span class="glyphicon glyphicon-question-sign"></span></h1>--><h1><span 
+
+if(firstTimeIn) {
+        var firstTimeIn = false
+        
+        // Generate a random number
+        var random = Math.floor(Math.random() * 100) + 1;  
+
+        // Then dump the random number into our randomNumber div. 
+        $('#randomNumber').html(random);
+
+    }
+
+    $("#gem1").on("click", function(){
+
+    // Generate a random number for Gem1
+    var randomGem1 = Math.floor(Math.random() * 10) + 1;  
+    
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem1save').html(randomGem1);
+    //$('#CurrTotal').html(#CurrTotal + randomGem1);
+   // $('holdTotal').html(holdTotal + randomGem1);
+   // holdTotal = randomGem1
+   // $('holdTotal').html(randomGem1);
+    $('#currTotal').html(randomGem1);
+    //console.log(randomGem1);
+    //console.log(holdTotal)
+    //console.log(holdTotal);
+
+    })
+    
+
+    $("#gem2").on("click", function(){
+
+    // Generate a random number
+    var randomGem2 = Math.floor(Math.random() * 10) + 1;  
+
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem2save').html(randomGem2);
+    $('#currTotal').html(randomGem2);
+    console.log(randomGem2)
+    
+    })
+
+
+    $("#gem3").on("click", function(){
+
+    // Generate a random number for Gem1
+    var randomGem3 = Math.floor(Math.random() * 10) + 1;  
+
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem1save').html(randomGem1);
+    $('#currTotal').html(randomGem3);
+    console.log(randomGem3);
+   
+    })
+
+
+    $("#gem4").on("click", function(){
+
+    // Generate a random number
+    var randomGem4 = Math.floor(Math.random() * 10) + 1;  
+
+    // Then dump the random number into our randomNumber div. 
+    //$('#gem2save').html(randomGem2);
+    $('#currTotal').html(randomGem4);
+    console.log(randomGem4)
+    
+    })

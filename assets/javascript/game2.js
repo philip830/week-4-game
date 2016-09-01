@@ -25,59 +25,21 @@ function startGame() {
     // Then dump the random number into our randomNumber div. 
     $('#randomNumber').html(random);
 
+    $("#gem1").on("click", function(){
+       var randomGem1 = Math.floor(Math.random() * 10) + 1; 
+
+       var holdTotal = randomGem1 + 7;
+        $('#currTotal').html(randomGem1);
+        console.log(randomGem1);
+        console.log(holdTotal);
+       
+    })
     }    
+//}    
 
 function playTheGame() {
 
-     $("#gem1").on("click", function(){
-
-    // Generate a random number for Gem1
-    //var randomGem1 = Math.floor(Math.random() * 10) + 1;  
-    randomGem1 = 7;
-    $('#currTotal').html(randomGem1);
-    
-    })
-    
-
-    $("#gem2").on("click", function(){
-
-    // Generate a random number
-    var randomGem2 = Math.floor(Math.random() * 10) + 1;  
-
-    // Then dump the random number into our randomNumber div. 
-    //$('#gem2save').html(randomGem2);
-    $('#currTotal').html(randomGem2);
-    console.log(randomGem2)
-    
-    })
-
-
-    $("#gem3").on("click", function(){
-
-    // Generate a random number for Gem1
-    var randomGem3 = Math.floor(Math.random() * 10) + 1;  
-
-    // Then dump the random number into our randomNumber div. 
-    //$('#gem1save').html(randomGem1);
-    $('#currTotal').html(randomGem3);
-    console.log(randomGem3);
-   
-    })
-
-
-    $("#gem4").on("click", function(){
-
-    // Generate a random number
-    var randomGem4 = Math.floor(Math.random() * 10) + 1;  
-
-    // Then dump the random number into our randomNumber div. 
-    //$('#gem2save').html(randomGem2);
-    $('#currTotal').html(randomGem4);
-    console.log(randomGem4)
-    
-    })
-
-    }
+    var holdTotal = 
 
     //$("#gem1").on("click", function(){
       // var randomGem1 = Math.floor(Math.random() * 10) + 1; 
@@ -93,7 +55,10 @@ function playTheGame() {
   //  randomGem1 = randomGem1 + 7;
     //$('#currTotal').html(randomGem1);
     //console.log(randomGem1)
-  
+        
+    //})        
+    }
+    //}
     
     // Then dump the random number into our randomNumber div. 
     //$('#gem1save').html(randomGem1);
