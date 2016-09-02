@@ -13,6 +13,7 @@
     var randomGem3 = 0;
     var randomGem4 = 0;
     var holdTotal = 0;
+    var random = 0;
     //var firstTimeIn = true;
 
     //var firstTimeIn = true;
@@ -25,7 +26,7 @@
  function randomizeCells() {
 
       // Generate a random number
-    var random = Math.floor(Math.random() * 100) + 1;  
+    random = Math.floor(Math.random() * 100) + 1;  
 
     // Then dump the random number into our randomNumber div. 
     $('#randomNumber').html(random);
@@ -49,13 +50,14 @@ function playTheGame() {
      $("#gem1").on("click", function(){
 
         holdTotal = holdTotal + randomGem1;
-
+        console.log("gem1 " + randomGem1);
     
     // Then dump the random number into our randomNumber div. 
     //$('#gem2save').html(randomGem2);
-    $('#currTotal').html(randomGem1);
+    $('#currTotal').html(holdTotal);
     console.log(randomGem1)
-   
+    
+    checkWin(random, holdTotal);
 
     })
     
@@ -66,8 +68,12 @@ function playTheGame() {
 
     // Then dump the random number into our randomNumber div. 
     //$('#gem2save').html(randomGem2);
-    $('#currTotal').html(randomGem2);
+    $('#currTotal').html(holdTotal);
     console.log(randomGem2)
+
+
+        checkWin(random, holdTotal);
+
     
     })
 
@@ -78,9 +84,11 @@ function playTheGame() {
 
     // Then dump the random number into our randomNumber div. 
     //$('#gem1save').html(randomGem1);
-    $('#currTotal').html(randomGem3);
+    $('#currTotal').html(holdTotal);
     console.log(randomGem3);
-   
+ 
+     checkWin(random, holdTotal);
+  
     })
 
 
@@ -90,24 +98,25 @@ function playTheGame() {
 
     // Then dump the random number into our randomNumber div. 
     //$('#gem2save').html(randomGem2);
-    $('#currTotal').html(randomGem4);
+    $('#currTotal').html(holdTotal);
     console.log(randomGem4)
+
+    checkWin(random, holdTotal);
+
     
     })
 }
 
 function checkWin(winScore, score) {
     
-    if (holdTotal == winScore) {
-        return "win";
-
-    } else if (holdTotal > winScore) {
-        return "loss";
-
-    } else if (holdTotal < winScore) {
-        return "continue";
+    if(winScore == score) {
+        alert("YOU WIN");
     }
-}
+    
+    else if(winScore < score){
+        alert("YOU LOSE");
+    }
+ }
 
     
     
@@ -118,7 +127,6 @@ function checkWin(winScore, score) {
 // Starts the Game by running the startGame() function
   randomizeCells();
    playTheGame();
-   functionCheckWin();
 //playTheGame();
 
 	
